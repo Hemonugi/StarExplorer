@@ -43,3 +43,8 @@ local sheetOptions =
 }
 
 local objectSheet = graphics.newImageSheet('gameObjects.png', sheetOptions)
+
+
+local background = display.newImageRect( backGroup, "background.png", 800, 1400 )
+background.x = display.contentCenterX
+background.y = display.contentCenterY
