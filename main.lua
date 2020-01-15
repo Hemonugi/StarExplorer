@@ -50,6 +50,12 @@ local uiGroup = display.newGroup()
 
 local ship
 
+local lives = 3
+local score = 0
+
+local livesText
+local scoreText
+
 local background = display.newImageRect(backGroup, 'background.png', 800, 1400 )
 background.x = display.contentCenterX
 background.y = display.contentCenterY
@@ -59,3 +65,13 @@ ship.x = display.contentCenterX
 ship.y = display.contentHeight - 100
 physics.addBody(ship, {radius=30, isSensor=true})
 ship.myName = 'ship'
+
+livesText = display.newText(uiGroup, "Lives: " .. lives, 200, 80, native.systemFont, 36)
+scoreText = display.newText(uiGroup, "Score: " .. score, 400, 80, native.systemFont, 36)
+
+display.setStatusBar(display.HiddenStatusBar)
+
+local function updateText()
+    livesText.text = "Lives: " .. lives
+    scoreText.text = "Score: " .. score
+end
