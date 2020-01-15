@@ -43,8 +43,18 @@ local sheetOptions =
 }
 
 local objectSheet = graphics.newImageSheet('gameObjects.png', sheetOptions)
-
+local ship
 
 local background = display.newImageRect( backGroup, "background.png", 800, 1400 )
 background.x = display.contentCenterX
 background.y = display.contentCenterY
+
+local backGroup = display.newGroup()
+local mainGroup = display.newGroup()
+local uiGroup = display.newGroup()
+
+ship = display.newImageRect(mainGroup, objectSheet, 4, 98, 79)
+ship.x = display.contentCenterX
+ship.y = display.contentHeight - 100
+physics.addBody(ship, {radius=30, isSensor=true})
+ship.myName = 'ship'
